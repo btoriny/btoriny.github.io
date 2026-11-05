@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛主题大赛-主题大赛_每日大赛_创意主题大赛_大赛主题</title>
+<meta name="description" content="每日大赛主题大赛页面汇总每日大赛与主题大赛的相关内容，提供主题玩法分类、每日主题速览、创意主题展示与大赛主题导航，帮助用户快速了解每日大赛主题大赛的内容结构与浏览入口。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f2a44'/%3E%3Cpath d='M20 44V24h6l6 10 6-10h6v20h-6V33l-6 10-6-10v11z' fill='%23f5c542'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#1f2a44;
+    --ink-soft:#3d4a66;
+    --paper:#f6f4ee;
+    --paper-2:#fffdf8;
+    --accent:#f5c542;
+    --accent-deep:#c98a00;
+    --line:#e3ddcf;
+    --muted:#7b7667;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:min(1120px,92vw);margin:0 auto;}
+
+  /* 页头 */
+  header.site-top{
+    background:var(--ink);
+    color:#f4f1e7;
+    border-bottom:3px solid var(--accent);
+  }
+  .top-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;padding:16px 0;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.14rem;letter-spacing:.02em;}
+  .brand svg{width:36px;height:36px;flex:none;}
+  .brand small{display:block;font-weight:400;font-size:.7rem;color:#c8c2ae;letter-spacing:.12em;}
+  nav.top-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.top-nav a{
+    padding:7px 13px;border-radius:4px;font-size:.9rem;color:#e6e1d2;
+    border:1px solid transparent;transition:.2s;
+  }
+  nav.top-nav a:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* 首屏 */
+  .hero{
+    background:linear-gradient(160deg,#263253 0%,#1f2a44 55%,#17203a 100%);
+    color:#f6f3e9;padding:52px 0 46px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;
+    border-radius:50%;background:radial-gradient(circle,rgba(245,197,66,.22),transparent 68%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.35fr .8fr;gap:40px;align-items:center;position:relative;z-index:1;}
+  .hero h1{font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.3;letter-spacing:.01em;margin-bottom:14px;}
+  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero .lead{color:#cfd3e0;font-size:1rem;max-width:34em;margin-bottom:22px;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:9px;}
+  .hero-tags span{
+    font-size:.82rem;padding:5px 12px;border:1px solid rgba(245,197,66,.5);
+    border-radius:999px;color:#f2e6bd;
+  }
+  .hero-mark{
+    background:rgba(255,255,255,.05);border:1px solid rgba(245,197,66,.28);
+    border-radius:10px;padding:22px;text-align:center;
+  }
+  .hero-mark svg{width:100%;max-width:190px;height:auto;display:block;margin:0 auto 10px;}
+  .hero-mark p{font-size:.82rem;color:#c3c8d8;letter-spacing:.08em;}
+
+  /* 通用区块 */
+  section.block{padding:46px 0 8px;}
+  .block-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;flex-wrap:wrap;}
+  .block-head h2{font-size:1.34rem;letter-spacing:.01em;}
+  .block-head .hint{font-size:.84rem;color:var(--muted);}
+  .block-head::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  /* 每日主题速览 */
+  .day-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .day-cell{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:8px;
+    padding:16px 15px;border-top:3px solid var(--accent);
+  }
+  .day-cell b{display:block;font-size:.95rem;margin-bottom:4px;}
+  .day-cell span{font-size:.82rem;color:var(--muted);}
+  .day-cell p{font-size:.86rem;color:var(--ink-soft);margin-top:8px;}
+
+  /* 玩法分类 */
+  .play-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .play-item{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:8px;
+    padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;
+  }
+  .play-item h3{font-size:1rem;display:flex;align-items:center;gap:8px;}
+  .play-item h3 svg{width:20px;height:20px;flex:none;}
+  .play-item p{font-size:.87rem;color:var(--ink-soft);}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+  .chips i{
+    font-style:normal;font-size:.75rem;color:var(--accent-deep);
+    background:rgba(245,197,66,.16);border-radius:3px;padding:2px 8px;
+  }
+
+  /* 创意展示 */
+  .showcase{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:start;}
+  .show-card{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  }
+  .show-figure{background:#eae4d4;height:150px;display:flex;align-items:center;justify-content:center;}
+  .show-figure svg{width:72%;max-width:230px;height:auto;}
+  .show-body{padding:16px 18px 18px;}
+  .show-body h3{font-size:1rem;margin-bottom:6px;}
+  .show-body p{font-size:.87rem;color:var(--ink-soft);}
+  .show-side{display:grid;gap:12px;}
+  .side-row{
+    display:flex;gap:12px;align-items:flex-start;background:var(--paper-2);
+    border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;padding:13px 15px;
+  }
+  .side-row b{font-size:.9rem;}
+  .side-row p{font-size:.84rem;color:var(--muted);}
+
+  /* 主题要点 */
+  .topic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .topic-cell{
+    background:#fffdf8;border:1px dashed var(--line);border-radius:8px;padding:17px 18px;
+  }
+  .topic-cell h3{font-size:.98rem;margin-bottom:7px;color:var(--ink);}
+  .topic-cell ul{list-style:none;display:grid;gap:5px;}
+  .topic-cell li{
+    font-size:.87rem;color:var(--ink-soft);padding-left:15px;position:relative;
+  }
+  .topic-cell li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--accent);border-radius:50%;}
+
+  /* 浏览入口 */
+  .entry-bar{
+    background:var(--ink);color:#f2eee1;border-radius:10px;padding:28px 26px;
+    display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;margin-top:6px;
+  }
+  .entry-bar h2{font-size:1.2rem;margin-bottom:8px;}
+  .entry-bar p{font-size:.9rem;color:#c8ccda;}
+  .entry-links{display:flex;flex-wrap:wrap;gap:9px;justify-content:flex-end;}
+  .entry-links span{
+    font-size:.83rem;padding:6px 13px;border-radius:4px;
+    background:rgba(245,197,66,.14);border:1px solid rgba(245,197,66,.4);color:#f5e6b2;
+  }
+
+  /* 页脚 */
+  footer.site-foot{
+    margin-top:52px;background:#151d33;color:#b6bccb;padding:30px 0 26px;font-size:.85rem;
+  }
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start;}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:#efe9d7;font-weight:600;font-size:.98rem;}
+  .foot-brand svg{width:26px;height:26px;}
+  .foot-nav{display:flex;gap:16px;flex-wrap:wrap;}
+  .foot-nav a:hover{color:var(--accent);}
+  .foot-note{width:100%;border-top:1px solid #26304b;padding-top:14px;margin-top:6px;color:#7d8497;font-size:.79rem;}
+
+  /* 响应式 */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:26px;}
+    .hero-mark{max-width:320px;}
+    .day-strip{grid-template-columns:repeat(2,1fr);}
+    .play-list{grid-template-columns:repeat(2,1fr);}
+    .showcase{grid-template-columns:1fr;}
+    .topic-grid{grid-template-columns:1fr;}
+    .entry-bar{grid-template-columns:1fr;}
+    .entry-links{justify-content:flex-start;}
+  }
+  @media (max-width:560px){
+    .top-inner{flex-direction:column;align-items:flex-start;gap:12px;}
+    nav.top-nav a{padding:6px 10px;font-size:.84rem;}
+    .hero{padding:36px 0 32px;}
+    .day-strip,.play-list{grid-template-columns:1fr;}
+    section.block{padding:34px 0 4px;}
+    .block-head h2{font-size:1.16rem;}
+    .foot-inner{flex-direction:column;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-top">
+  <div class="wrap top-inner">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="13" fill="#f5c542"/>
+        <path d="M20 44V24h6l6 10 6-10h6v20h-6V33l-6 10-6-10v11z" fill="#1f2a44"/>
+      </svg>
+      <div>每日大赛主题大赛<small>THEME ARENA</small></div>
+    </div>
+    <nav class="top-nav" aria-label="站内导航">
+      <a href="#daily">每日主题</a>
+      <a href="#play">玩法分类</a>
+      <a href="#show">创意展示</a>
+      <a href="#topic">主题要点</a>
+      <a href="#entry">浏览入口</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>每日大赛主题大赛<em>主题玩法</em>一站速览</h1>
+        <p class="lead">围绕每日大赛主题大赛整理主题玩法分类、每日主题速览与创意主题展示，让你快速看清今天有什么主题、属于哪种玩法、适合怎样参与浏览。</p>
+        <div class="hero-tags">
+          <span>每日大赛</span>
+          <span>主题大赛</span>
+          <span>创意主题</span>
+          <span>大赛主题</span>
+          <span>主题玩法</span>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <svg viewBox="0 0 200 140">
+          <rect x="18" y="30" width="164" height="86" rx="10" fill="#f5c542" opacity="0.92"/>
+          <rect x="30" y="44" width="140" height="58" rx="6" fill="#1f2a44"/>
+          <text x="100" y="82" font-size="26" font-weight="700" fill="#f5c542" text-anchor="middle" font-family="sans-serif">DAILY</text>
+          <circle cx="34" cy="30" r="6" fill="#f5c542"/>
+          <circle cx="166" cy="30" r="6" fill="#f5c542"/>
+        </svg>
+        <p>每日主题 · 持续更新</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="daily">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>每日主题速览</h2>
+        <span class="hint">按节奏查看每日大赛主题大赛的主题安排</span>
+      </div>
+      <div class="day-strip">
+        <div class="day-cell">
+          <b>周一 · 开局主题</b>
+          <span>轻松入门</span>
+          <p>以简单清晰的主题起手，适合第一次接触每日大赛主题大赛的用户了解规则和节奏。</p>
+        </div>
+        <div class="day-cell">
+          <b>周二 · 创意主题</b>
+          <span>灵感发散</span>
+          <p>偏重创意表达的主题，鼓励从生活、画面与文字角度做发散，是主题大赛中较受欢迎的类型。</p>
+        </div>
+        <div class="day-cell">
+          <b>周三 · 挑战主题</b>
+          <span>限时限定</span>
+          <p>设置一定限制条件的主题玩法，考验在有限条件下完成主题内容的能力。</p>
+        </div>
+        <div class="day-cell">
+          <b>周四至周末</b>
+          <span>综合主题</span>
+          <p>综合前几日的主题方向，形成更完整的每日大赛主题大赛内容周循环。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="play">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>主题玩法分类</h2>
+        <span class="hint">每日大赛主题大赛的常见玩法方向</span>
+      </div>
+      <div class="play-list">
+        <div class="play-item">
+          <h3>
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="#c98a00" stroke-width="2"/><path d="M7 9h10M7 13h6" stroke="#c98a00" stroke-width="2" stroke-linecap="round"/></svg>
+            文字创意主题
+          </h3>
+          <p>围绕一个词或一句话展开表达，适合在主题大赛中展示语言组织与创意联想。</p>
+          <div class="chips"><i>短句主题</i><i>关键词</i><i>创意表达</i></div>
+        </div>
+        <div class="play-item">
+          <h3>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#c98a00" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#c98a00" stroke-width="2" stroke-linecap="round"/></svg>
+            限时主题挑战
+          </h3>
+          <p>在限定时间内完成每日大赛主题大赛的主题内容，节奏更紧凑，参与感更强。</p>
+          <div class="chips"><i>限时</i><i>节奏</i><i>挑战</i></div>
+        </div>
+        <div class="play-item">
+          <h3>
+            <svg viewBox="0 0 24 24"><path d="M4 18l6-8 4 5 3-4 3 7z" fill="none" stroke="#c98a00" stroke-width="2" stroke-linejoin="round"/></svg>
+            画面视觉主题
+          </h3>
+          <p>以图像、构图和配色为核心的主题方向，是创意型主题大赛中较直观的一类。</p>
+          <div class="chips"><i>构图</i><i>配色</i><i>视觉</i></div>
+        </div>
+        <div class="play-item">
+          <h3>
+            <svg viewBox="0 0 24 24"><path d="M5 6h14v4H5zM5 14h9v4H5z" fill="none" stroke="#c98a00" stroke-width="2"/></svg>
+            生活记录主题
+          </h3>
+          <p>从日常场景中提取主题素材，让每日大赛主题大赛更贴近真实生活体验。</p>
+          <div class="chips"><i>日常</i><i>记录</i><i>素材</i></div>
+        </div>
+        <div class="play-item">
+          <h3>
+            <svg viewBox="0 0 24 24"><path d="M12 3l3 6 6 1-4.5 4.5L18 21l-6-3-6 3 1.5-6.5L3 10l6-1z" fill="none" stroke="#c98a00" stroke-width="2" stroke-linejoin="round"/></svg>
+            评选类主题
+          </h3>
+          <p>以主题契合度、完成度与创意度作为参考维度的主题大赛玩法分类。</p>
+          <div class="chips"><i>契合度</i><i>完成度</i><i>创意度</i></div>
+        </div>
+        <div class="play-item">
+          <h3>
+            <svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16" stroke="#c98a00" stroke-width="2" stroke-linecap="round"/></svg>
+            组合混搭主题
+          </h3>
+          <p>把两个看似无关的元素组合成新主题，是每日大赛主题大赛里颇具趣味性的方向。</p>
+          <div class="chips"><i>组合</i><i>混搭</i><i>新意</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="show">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>创意主题展示</h2>
+        <span class="hint">主题大赛思路呈现方式示例</span>
+      </div>
+      <div class="showcase">
+        <article class="show-card">
+          <div class="show-figure" aria-hidden="true">
+            <svg viewBox="0 0 240 120">
+              <rect x="10" y="14" width="220" height="92" rx="8" fill="#fffdf8" stroke="#e3ddcf"/>
+              <circle cx="62" cy="58" r="24" fill="#f5c542"/>
+              <rect x="104" y="34" width="100" height="10" rx="5" fill="#1f2a44"/>
+              <rect x="104" y="54" width="76" height="8" rx="4" fill="#c9c2ad"/>
+              <rect x="104" y="70" width="88" height="8" rx="4" fill="#c9c2ad"/>
+            </svg>
+          </div>
+          <div class="show-body">
+            <h3>单一元素深度展开</h3>
+            <p>围绕一个核心元素反复推演，把主题大赛的题目拆成多个小方向，适合喜欢深入表达的用户。</p>
+          </div>
+        </article>
+        <div class="show-side">
+          <div class="side-row">
+            <b>对照式</b>
+            <p>用前后对比或正反对照呈现主题，让每日大赛主题大赛的题目更有张力。</p>
+          </div>
+          <div class="side-row">
+            <b>叙事式</b>
+            <p>用一个小故事串联主题线索，适合文字类与记录类主题玩法。</p>
+          </div>
+          <div class="side-row">
+            <b>拼贴式</b>
+            <p>把多个素材拼在一起形成新主题，是创意主题大赛中常见的组合方式。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="topic">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>主题要点</h2>
+        <span class="hint">浏览每日大赛主题大赛时值得关注的几个方面</span>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-cell">
+          <h3>看清主题限定</h3>
+          <ul>
+            <li>明确主题范围与表现方向</li>
+            <li>注意是否有形式或时长限制</li>
+            <li>区分必选元素与自由发挥部分</li>
+          </ul>
+        </div>
+        <div class="topic-cell">
+          <h3>把握创意落点</h3>
+          <ul>
+            <li>从一个具体切口进入主题</li>
+            <li>避免只堆砌与主题相关的词</li>
+            <li>让表达与主题形成直接关联</li>
+          </ul>
+        </div>
+        <div class="topic-cell">
+          <h3>理解评选参考</h3>
+          <ul>
+            <li>主题契合度是常见参考维度</li>
+            <li>完成度影响整体呈现效果</li>
+            <li>创意度体现差异化思路</li>
+          </ul>
+        </div>
+        <div class="topic-cell">
+          <h3>形成个人节奏</h3>
+          <ul>
+            <li>按每日主题安排分配精力</li>
+            <li>积累可复用的主题素材</li>
+            <li>保留记录便于回顾与调整</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="entry">
+    <div class="wrap">
+      <div class="entry-bar">
+        <div>
+          <h2>进入每日大赛主题大赛主题导航</h2>
+          <p>从每日主题、玩法分类、创意展示到主题要点，按需跳转到对应区块，快速找到与主题大赛相关的内容。</p>
+        </div>
+        <div class="entry-links">
+          <span>每日主题</span>
+          <span>玩法分类</span>
+          <span>创意展示</span>
+          <span>主题要点</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="13" fill="#f5c542"/>
+        <path d="M20 44V24h6l6 10 6-10h6v20h-6V33l-6 10-6-10v11z" fill="#1f2a44"/>
+      </svg>
+      每日大赛主题大赛
+    </div>
+    <nav class="foot-nav" aria-label="页脚导航">
+      <a href="#daily">每日主题</a>
+      <a href="#play">玩法分类</a>
+      <a href="#show">创意展示</a>
+      <a href="#topic">主题要点</a>
+    </nav>
+    <p class="foot-note">围绕每日大赛主题大赛整理主题玩法、创意方向与浏览入口，内容随主题安排持续补充。</p>
+  </div>
+</footer>
+
+</body>
+</html>
