@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91 次元漫画-次元漫画_漫画分类_漫画推荐_漫画阅读</title>
+<meta name="description" content="91 次元漫画主题页面，围绕次元漫画的分类方式、题材选择、阅读顺序与筛选方法展开，帮助访客理清 91 次元漫画相关内容的查找思路，了解漫画标签体系、连载与完结的区别、阅读设备与浏览注意事项，并提供常见问题解答与内容导航说明。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b2140'/%3E%3Cpath d='M16 18h14v28H16z' fill='%23f2c14e'/%3E%3Cpath d='M34 18h14v28H34z' fill='%23e4572e'/%3E%3Ccircle cx='23' cy='26' r='3' fill='%232b2140'/%3E%3Ccircle cx='41' cy='26' r='3' fill='%232b2140'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#241d33;
+  --ink-soft:#4a4258;
+  --paper:#f6f1e7;
+  --paper-warm:#efe6d6;
+  --plum:#3a2c52;
+  --plum-deep:#251b36;
+  --gold:#d9a441;
+  --coral:#d9573a;
+  --line:#d9cdb9;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Songti SC","STSong","Noto Serif SC",serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.85;
+  font-size:17px;
+  background-image:linear-gradient(var(--paper) 0%,var(--paper-warm) 100%);
+}
+a{color:var(--coral);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+
+/* 顶栏 */
+.topbar{
+  background:var(--plum-deep);
+  color:#f3ecdd;
+  border-bottom:3px solid var(--gold);
+}
+.topbar .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:14px 22px;flex-wrap:wrap;
+}
+.brandmark{display:flex;align-items:center;gap:12px;}
+.brandmark .dot{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold),var(--coral));
+  display:grid;place-items:center;color:var(--plum-deep);
+  font-weight:700;font-size:18px;letter-spacing:0;
+}
+.brandmark strong{font-size:20px;letter-spacing:1px;}
+.brandmark span{display:block;font-size:12px;color:#c8bcd8;letter-spacing:2px;}
+.topnav{display:flex;gap:20px;flex-wrap:wrap;font-size:15px;}
+.topnav a{color:#e6dcc8;}
+.topnav a:hover{color:var(--gold);}
+
+/* 首屏 */
+.stage{
+  padding:58px 0 46px;
+  border-bottom:1px solid var(--line);
+}
+.stage .kicker{
+  display:inline-block;font-size:13px;letter-spacing:3px;
+  color:var(--plum);border:1px solid var(--plum);
+  padding:4px 12px;border-radius:2px;margin-bottom:22px;
+  background:#fff8ea;
+}
+.stage h1{
+  font-size:clamp(28px,5vw,44px);
+  line-height:1.35;letter-spacing:1px;
+  color:var(--plum-deep);
+  max-width:14em;
+}
+.stage h1 em{
+  font-style:normal;
+  background:linear-gradient(transparent 62%,#f0d18c 62%);
+}
+.stage .lead{
+  margin-top:20px;max-width:38em;font-size:18px;
+  color:var(--ink-soft);
+}
+.stage .meta{
+  margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;
+}
+.stage .meta span{
+  font-size:13px;padding:5px 14px;border-radius:999px;
+  background:#fff8ea;border:1px solid var(--line);color:var(--plum);
+}
+
+/* 通用板块 */
+.block{padding:52px 0;border-bottom:1px solid var(--line);}
+.block-head{
+  display:flex;align-items:baseline;gap:14px;margin-bottom:26px;
+  flex-wrap:wrap;
+}
+.block-head .num{
+  font-size:14px;color:var(--coral);letter-spacing:2px;
+  font-family:Georgia,serif;
+}
+.block-head h2{
+  font-size:clamp(22px,3.4vw,28px);
+  color:var(--plum-deep);letter-spacing:.5px;
+}
+.block p{margin-bottom:16px;color:var(--ink-soft);}
+.block p:last-child{margin-bottom:0;}
+
+/* 两栏说明 */
+.split{
+  display:grid;grid-template-columns:1.35fr .9fr;gap:34px;
+  align-items:start;
+}
+.sidebox{
+  background:#fffaf0;border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  padding:22px 22px 18px;
+}
+.sidebox h3{
+  font-size:17px;color:var(--plum-deep);margin-bottom:12px;
+  letter-spacing:.5px;
+}
+.sidebox ul{list-style:none;}
+.sidebox li{
+  font-size:15px;color:var(--ink-soft);padding:7px 0 7px 18px;
+  position:relative;border-bottom:1px dashed var(--line);
+}
+.sidebox li:last-child{border-bottom:none;}
+.sidebox li::before{
+  content:"";position:absolute;left:0;top:16px;
+  width:7px;height:7px;background:var(--coral);border-radius:1px;
+}
+
+/* 题材列表 */
+.genre-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.genre{
+  background:#fffaf0;border:1px solid var(--line);
+  padding:18px 20px;
+}
+.genre h3{
+  font-size:17px;color:var(--plum-deep);margin-bottom:6px;
+  display:flex;align-items:center;gap:8px;
+}
+.genre h3 i{
+  font-style:normal;font-size:12px;color:#fff;background:var(--plum);
+  padding:1px 8px;border-radius:2px;letter-spacing:1px;
+}
+.genre p{font-size:15px;margin:0;color:var(--ink-soft);}
+
+/* 步骤 */
+.steps{list-style:none;counter-reset:st;display:grid;gap:14px;}
+.steps li{
+  counter-increment:st;position:relative;
+  padding:18px 20px 18px 66px;
+  background:#fffaf0;border:1px solid var(--line);
+}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:20px;top:16px;
+  font-family:Georgia,serif;font-size:24px;color:var(--gold);
+  font-weight:700;
+}
+.steps li strong{display:block;color:var(--plum-deep);margin-bottom:4px;}
+.steps li span{font-size:15px;color:var(--ink-soft);}
+
+/* 表格 */
+.table-wrap{overflow-x:auto;}
+table{
+  width:100%;border-collapse:collapse;font-size:15px;
+  background:#fffaf0;
+}
+th,td{
+  border:1px solid var(--line);padding:12px 14px;
+  text-align:left;vertical-align:top;
+}
+th{background:var(--plum);color:#f3ecdd;font-weight:600;letter-spacing:.5px;}
+td{color:var(--ink-soft);}
+tbody tr:nth-child(even) td{background:#f8f2e6;}
+
+/* 提示条 */
+.notice{
+  background:#fdf1e2;border:1px solid #e9c9a6;
+  padding:20px 22px;margin-top:26px;
+}
+.notice h3{font-size:16px;color:var(--coral);margin-bottom:8px;}
+.notice p{font-size:15px;margin:0;}
+
+/* FAQ */
+.faq-item{
+  border-bottom:1px solid var(--line);padding:18px 0;
+}
+.faq-item:first-of-type{padding-top:0;}
+.faq-item h3{
+  font-size:17px;color:var(--plum-deep);margin-bottom:8px;
+}
+.faq-item p{font-size:15px;margin:0;}
+
+/* 行动区 */
+.cta{
+  background:var(--plum);color:#f3ecdd;
+  padding:48px 0;border-bottom:3px solid var(--gold);
+}
+.cta h2{font-size:26px;margin-bottom:14px;letter-spacing:1px;}
+.cta p{color:#d8cce6;max-width:42em;margin-bottom:0;}
+.cta .chips{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;}
+.cta .chips span{
+  font-size:13px;border:1px solid #7a6a92;padding:5px 14px;
+  border-radius:999px;color:#e6dcc8;
+}
+
+/* 页脚 */
+footer{
+  background:var(--plum-deep);color:#b9adc9;
+  padding:38px 0 32px;font-size:14px;line-height:1.9;
+}
+footer .wrap{display:grid;gap:14px;}
+footer strong{color:#f3ecdd;}
+footer .flinks{display:flex;gap:20px;flex-wrap:wrap;}
+footer .flinks a{color:#cfc3de;}
+
+@media (max-width:820px){
+  body{font-size:16px;}
+  .split{grid-template-columns:1fr;gap:24px;}
+  .genre-list{grid-template-columns:1fr;}
+  .stage{padding:40px 0 34px;}
+  .topbar .wrap{padding:12px 18px;}
+  .topnav{gap:14px;font-size:14px;}
+  .block{padding:38px 0;}
+  .steps li{padding:16px 16px 16px 58px;}
+  .steps li::before{left:16px;font-size:20px;}
+}
+@media (max-width:480px){
+  .stage h1{font-size:26px;}
+  .brandmark strong{font-size:18px;}
+  th,td{padding:10px;}
+  footer .flinks{gap:14px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brandmark">
+      <div class="dot">次</div>
+      <div>
+        <strong>91 次元漫画</strong>
+        <span>MANGA DIMENSION</span>
+      </div>
+    </div>
+    <nav class="topnav" aria-label="页面导航">
+      <a href="#meaning">主题说明</a>
+      <a href="#genre">题材分类</a>
+      <a href="#choose">选择思路</a>
+      <a href="#order">阅读顺序</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="stage">
+    <div class="wrap">
+      <span class="kicker">次元漫画 · 主题页</span>
+      <h1><em>91 次元漫画</em>：从题材标签到阅读顺序的梳理方式</h1>
+      <p class="lead">这里不是某个作品的单页，而是围绕 91 次元漫画这一主题，把题材分类、标签含义、连载状态、阅读顺序与筛选习惯讲清楚，方便你按自己的偏好找到方向。</p>
+      <div class="meta">
+        <span>题材标签体系</span>
+        <span>连载与完结区别</span>
+        <span>阅读顺序建议</span>
+        <span>浏览安全提示</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="meaning">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="num">01</span>
+        <h2>91 次元漫画这一说法通常指什么</h2>
+      </div>
+      <div class="split">
+        <div>
+          <p>在中文互联网里，“91 次元漫画”更像是一种主题化的叫法，而不是某一部固定作品的名字。它通常被用来指代与二次元题材相关的漫画内容集合，包括校园、恋爱、奇幻、悬疑、日常、热血等方向。理解这一点很关键：看到这几个字时，先判断它指向的是一个内容范围，还是一部具体作品，避免把主题词误当成书名。</p>
+          <p>由于这类说法常出现在导航、聚合与推荐语境中，访客的真实需求往往不是“记住一个网址”，而是“我想看某一类漫画，应该怎么找”。因此，比起盲目点开每一个链接，先弄清标签体系与内容分类，再决定从哪个方向进入，效率会高得多。91 次元漫画所涉及的题材跨度较大，先定方向再筛选，是比较稳妥的做法。</p>
+          <p>另外要注意，二次元漫画领域的站点与栏目更替较快，同一主题词下的内容构成可能随时变化。遇到页面内容与预期不符时，不必急着下结论，可以先看栏目说明、分类层级和更新时间标注，再判断这个入口是否符合自己的需求。把 91 次元漫画当作一个需要辨别的主题入口，而不是一个固定不变的答案，会更接近真实情况。</p>
+        </div>
+        <aside class="sidebox">
+          <h3>先弄清三件事</h3>
+          <ul>
+            <li>这个词指向题材范围，不是单部作品</li>
+            <li>先定题材方向，再进入具体分类</li>
+            <li>留意页面是否标注连载与完结状态</li>
+            <li>内容构成会变化，需结合栏目说明判断</li>
+            <li>遇到来源不明页面，先停在浏览层面</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="genre">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="num">02</span>
+        <h2>按题材拆解次元漫画的常见分类</h2>
+      </div>
+      <p>漫画分类是检索效率最高的入口之一。面对 91 次元漫画这类覆盖面较广的主题，先按题材缩小范围，再叠加状态、篇幅、读者向等条件，能明显减少无效浏览。下面几类是最常见的划分方式，实际栏目名称可能略有差异，但含义大体相通。</p>
+      <div class="genre-list">
+        <div class="genre">
+          <h3><i>恋爱</i>情感线与关系推进</h3>
+          <p>以人物关系和情感变化为主线，节奏偏日常或偏戏剧化。挑选时重点看关系推进是否自然、配角是否有存在感。</p>
+        </div>
+        <div class="genre">
+          <h3><i>奇幻</i>世界观与设定展开</h3>
+          <p>依赖架空设定、异能体系或异世界舞台。判断标准是设定是否自洽、前期是否交代清楚规则，避免读到一半才补设定。</p>
+        </div>
+        <div class="genre">
+          <h3><i>校园</i>青春与成长场景</h3>
+          <p>场景集中在学校与社团，常与恋爱、日常、运动交叉。适合想读轻松节奏、篇幅相对紧凑内容的读者。</p>
+        </div>
+        <div class="genre">
+          <h3><i>悬疑</i>线索与信息差</h3>
+          <p>以谜题、推理或心理张力为核心。阅读时更依赖前后呼应，建议按顺序读，跳章容易丢失关键线索。</p>
+        </div>
+        <div class="genre">
+          <h3><i>热血</i>目标与对抗结构</h3>
+          <p>围绕成长目标、对抗与团队展开，篇幅通常较长。挑选时可先看前期节奏是否抓人，再决定是否长期追读。</p>
+        </div>
+        <div class="genre">
+          <h3><i>日常</i>轻叙事与生活感</h3>
+          <p>弱化主线冲突，强调氛围与人物互动。适合碎片时间阅读，单话独立性强，不依赖强连续性。</p>
+        </div>
+      </div>
+      <p>除了题材本身，还要留意“读者向”标签，例如少年向、少女向、青年向等，它们往往决定了叙事重点与情感表达方式。91 次元漫画相关内容在分类上通常会把这些维度交叉使用，所以看到同一个题材下出现多种标签组合，属于正常现象，不必把它理解为分类错误。</p>
+    </div>
+  </section>
+
+  <section class="block" id="choose">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="num">03</span>
+        <h2>怎么判断一部次元漫画值不值得读</h2>
+      </div>
+      <p>面对大量题材相近的作品，判断标准比“别人说好看”更重要。下面几个维度不依赖任何评分数据，只看页面本身能提供的信息，就能做出相对合理的初筛。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>判断维度</th><th>看什么</th><th>常见误区</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>连载状态</td>
+              <td>是否标注连载中或已完结，更新节奏是否稳定</td>
+              <td>把“即将更新”当成已完结，结果读到一半断档</td>
+            </tr>
+            <tr>
+              <td>篇幅规模</td>
+              <td>话数或卷数的大致范围，是否适合长期追读</td>
+              <td>只看开头几话就判断整部作品节奏</td>
+            </tr>
+            <tr>
+              <td>标签一致性</td>
+              <td>题材标签与简介是否吻合，有无明显错位</td>
+              <td>被单一热门标签吸引，忽略简介里的真实定位</td>
+            </tr>
+            <tr>
+              <td>阅读顺序</td>
+              <td>是否有明确章话编号，是否存在外传与番外</td>
+              <td>先读番外再读正篇，导致人物关系混乱</td>
+            </tr>
+            <tr>
+              <td>内容完整度</td>
+              <td>章节列表是否连续，有无明显缺失</td>
+              <td>把缺章页面当成作品本身的问题</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>这套判断方式同样适用于 91 次元漫画相关栏目。需要提醒的是，标签是辅助工具而不是绝对结论，同一部作品可能同时属于校园与恋爱，也可能在后期转向悬疑。真正有效的做法是：先用标签缩小范围，再用简介与前几话确认风格是否合口味，最后再决定是否继续投入时间。</p>
+      <div class="notice">
+        <h3>关于内容来源的提醒</h3>
+        <p>浏览漫画类页面时，请留意页面是否说明内容来源与版权归属。对于来源不明、要求额外安装软件或索取个人信息的页面，建议保持谨慎，不要随意填写账号、手机号或支付信息。本站页面仅围绕 91 次元漫画这一主题做信息梳理，不提供任何下载或付费入口。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="order">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="num">04</span>
+        <h2>从选到读的四个步骤</h2>
+      </div>
+      <p>如果你刚开始接触 91 次元漫画这类主题内容，可以按下面的顺序操作，减少来回翻找的时间。</p>
+      <ol class="steps">
+        <li>
+          <strong>先定题材方向</strong>
+          <span>从恋爱、奇幻、校园、悬疑、热血、日常里挑一两个最想看的类型，避免一上来就浏览全部分类。</span>
+        </li>
+        <li>
+          <strong>再看状态与篇幅</strong>
+          <span>时间有限时优先选择已完结或篇幅较短的作品；准备长期追读时，再考虑连载中的长线内容。</span>
+        </li>
+        <li>
+          <strong>用简介和前几话确认风格</strong>
+          <span>简介能看出设定与基调，前几话能看出叙事节奏。两者结合，比只看标签更可靠。</span>
+        </li>
+        <li>
+          <strong>按章话顺序完整阅读</strong>
+          <span>确认是否存在外传、番外与特别篇，先读正篇再读衍生内容，避免人物关系与时间线错位。</span>
+        </li>
+      </ol>
+      <p>完成这四步之后，再回到 91 次元漫画的分类入口做二次筛选，通常会比第一次浏览更有方向感。如果发现某个分类下的内容与标签明显不符，可以换一个标签组合再试，而不是在同一条路径上反复点击。</p>
+    </div>
+  </section>
+
+  <section class="block" id="tags">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="num">05</span>
+        <h2>标签组合与阅读体验的关系</h2>
+      </div>
+      <p>漫画标签不是孤立存在的，组合方式会直接影响阅读体验。例如“校园 + 日常”通常节奏舒缓、单话独立性强；“奇幻 + 悬疑”则更依赖设定铺垫与线索回收，前期需要更多耐心。理解组合关系，能帮助你在 91 次元漫画相关内容中更快识别作品气质。</p>
+      <p>还有一类常见组合是“恋爱 + 成长”，它把情感线与人物变化绑在一起，读起来更像一段完整的成长过程，而不是单纯的关系推进。相对地，“热血 + 团队”更强调目标与协作，人物数量往往较多，前几话需要花时间记住角色。选择时可以先问自己：现在更想读轻一点的氛围，还是更想读有推进感的主线。</p>
+      <p>需要说明的是，标签由内容运营方或整理者添加，难免存在偏差。看到标签与内容不符时，可以把它当作参考而非定论。对于 91 次元漫画这一主题，建议把标签理解为“入口提示”，真正决定是否继续读的，仍然是简介、前几话和章节完整度这三项。</p>
+    </div>
+  </section>
+
+  <section class="block" id="device">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="num">06</span>
+        <h2>阅读设备、页面浏览与安全习惯</h2>
+      </div>
+      <div class="split">
+        <div>
+          <p>漫画阅读对屏幕尺寸比较敏感。手机上适合单页竖排阅读，通勤或碎片时间使用较多；平板与桌面端更适合双页对照，尤其是分镜密集、文字较多的作品。无论使用哪种设备，建议把字号与亮度调到舒适区间，连续阅读一段时间后适当休息。</p>
+          <p>浏览 91 次元漫画相关页面时，还要注意页面加载行为。正常的内容页通常以文字与图片为主，如果出现强制跳转、反复弹窗、要求关闭安全设置等异常情况，应立即停止操作并关闭页面。不要在不熟悉的页面输入账号密码，也不要在来源不明的页面完成支付。</p>
+          <p>另外，部分页面会标注“内容整理中”或“栏目筹备中”，这属于正常的状态说明，不代表内容一定存在。遇到这类标注时，可以稍后再看，或换一个分类入口，不必反复刷新。保持这种浏览习惯，能让 91 次元漫画这类主题页面的使用过程更平稳。</p>
+        </div>
+        <aside class="sidebox">
+          <h3>浏览时的几个习惯</h3>
+          <ul>
+            <li>手机单页读，平板双页对照更清晰</li>
+            <li>字号与亮度调到舒适区间</li>
+            <li>遇到强制跳转立即关闭页面</li>
+            <li>不在陌生页面填写账号与支付信息</li>
+            <li>看到“整理中”标注不必反复刷新</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="num">07</span>
+        <h2>关于 91 次元漫画的常见问题</h2>
+      </div>
+      <div class="faq-item">
+        <h3>91 次元漫画是一部具体的漫画作品吗？</h3>
+        <p>从常见用法看，它更像一个主题化的称呼，用来指代二次元题材相关的漫画内容范围，而不是某一部固定作品的名字。看到这个词时，建议先确认它出现在分类、导航还是作品页语境中，再判断具体指向。</p>
+      </div>
+      <div class="faq-item">
+        <h3>怎么快速找到自己想看的题材？</h3>
+        <p>先确定一两个核心题材，例如恋爱、奇幻或悬疑，再叠加连载状态与篇幅条件。分类层级越细，筛选越准确。若分类下内容仍显杂乱，可以换一个标签组合重新进入，比在单一列表中反复翻页更高效。</p>
+      </div>
+      <div class="faq-item">
+        <h3>连载中和已完结应该怎么选？</h3>
+        <p>时间有限、希望一次读完的读者，优先选择已完结作品；愿意长期跟进、能接受等待更新的读者，可以关注连载中的内容。无论哪种，都建议先看章节列表是否连续，避免读到一半出现明显缺章。</p>
+      </div>
+      <div class="faq-item">
+        <h3>阅读顺序有讲究吗？</h3>
+        <p>有。多数作品按章话编号顺序阅读即可，但部分作品存在外传、番外与特别篇。一般建议先读正篇，再读衍生内容。若页面标注了推荐顺序，可以按标注执行，能减少人物关系与时间线混乱。</p>
+      </div>
+      <div class="faq-item">
+        <h3>标签和简介不一致时该信哪个？</h3>
+        <p>以简介和前几话的实际内容为准。标签由整理者添加，可能存在偏差或滞后。把标签当作入口提示，把简介当作定位说明，再用前几话确认叙事节奏，三者结合判断更稳妥。</p>
+      </div>
+      <div class="faq-item">
+        <h3>浏览这类页面需要注意什么？</h3>
+        <p>留意页面是否说明内容来源，避免在来源不明的页面填写账号、手机号或支付信息。遇到强制跳转、反复弹窗或要求关闭安全设置的情况，应立即停止操作。本站不提供下载与付费入口，仅做主题信息梳理。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>把 91 次元漫画当作一张可反复使用的分类地图</h2>
+      <p>先定题材，再看状态，最后按顺序阅读。掌握这套顺序之后，无论分类栏目如何调整，你都能用同样的方法快速定位自己想看的方向，而不必依赖某一条固定链接。</p>
+      <div class="chips">
+        <span>题材优先</span>
+        <span>状态筛选</span>
+        <span>顺序阅读</span>
+        <span>安全浏览</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>91 次元漫画</strong>主题页，围绕次元漫画的题材分类、标签含义、连载状态与阅读顺序做信息梳理，帮助访客建立自己的筛选方法。</p>
+    <p>页面内容为通用说明，不构成对任何具体作品、站点或服务的推荐。漫画作品信息请以实际页面标注为准；浏览时请注意来源与个人信息安全。</p>
+    <div class="flinks">
+      <a href="#meaning">主题说明</a>
+      <a href="#genre">题材分类</a>
+      <a href="#choose">选择思路</a>
+      <a href="#order">阅读顺序</a>
+      <a href="#faq">常见问题</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
